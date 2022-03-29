@@ -1,0 +1,39 @@
+name: 'TestProject Job Runner'
+description: 'Run a job in TestProject and report on the results'
+inputs:
+  api-key:
+    description: 'TestProject API Key'
+    required: true
+  project-id:
+    description: 'TestProject Project Id'
+    required: true
+  job-id:
+    description: 'TestProject Job Id'
+    required: true
+  execution-parameters:
+    description: 'TestProject Job Execution Parameters'
+    required: true
+    default: '{}'
+  json-report:
+    description: 'Download the detailed TestProject json report'
+    required: true
+    default: ''
+  junit-report:
+    description: 'Download the junit report'
+    required: true
+    default: ''
+  pdf-report:
+    description: 'Download the PDF report'
+    required: true
+    default: ''
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.api-key }}
+    - ${{ inputs.project-id }}
+    - ${{ inputs.job-id }}
+    - ${{ inputs.execution-parameters }}
+    - ${{ inputs.json-report }}
+    - ${{ inputs.junit-report }}
+    - ${{ inputs.pdf-report }}
