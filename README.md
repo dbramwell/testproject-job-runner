@@ -13,7 +13,7 @@ jobs:
     name: Run TestProject Job
     steps:
       - name: Step to run TestProject Job
-        uses: dbramwell/testproject-job-runner
+        uses: dbramwell/testproject-job-runner@v0.0.1
         with:
           api-key: ${{ secrets.TESTPROJECT_API_KEY }}
           project-id: 'abcdefghijklmnopqrstuv'
